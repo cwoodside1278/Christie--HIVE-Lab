@@ -1,4 +1,4 @@
-# Christie Wodoside: HIVE-Lab
+# Christie Woodside for HIVE-Lab
 All public code and projects created by me for the HIVE Lab at George Washington University SMHS and FDA-ARGOS Project
 The FDA-ARGOS Project GitHub Repository can be found [here](https://github.com/FDA-ARGOS/data.argosdb)
 
