@@ -292,29 +292,29 @@ def bsMeta(bs_term, sleeptime):
     return bs_data_list
 
 #from biosample_datagrabber_v2.py on GitHub but used to grab assembly genome accession
-def getAssembly(as_term, sleeptime): #removed bco_id value
-    '''Get the genome assembly id -----------------------------------------------------------------------'''
-    #print(f' as_term: {as_term}')
-    search = Entrez.esearch(db='nucleotide', term=as_term, retmode='xml', idtype="acc")
-    time.sleep(sleeptime)
-    record = Entrez.read(search)
-    time.sleep(sleeptime)
+# def getAssembly(as_term, sleeptime): #removed bco_id value
+#     '''Get the genome assembly id -----------------------------------------------------------------------'''
+#     #print(f' as_term: {as_term}')
+#     search = Entrez.esearch(db='nucleotide', term=as_term, retmode='xml', idtype="acc")
+#     time.sleep(sleeptime)
+#     record = Entrez.read(search)
+#     time.sleep(sleeptime)
 
-    if record["IdList"]:
-        assembly_record_id = record['IdList'][0]
-        info = Entrez.efetch(db = 'nucleotide', id = assembly_record_id, rettype="gb", retmode="xml")
-        time.sleep(sleeptime)
-        record = Entrez.read(info)
-        time.sleep(sleeptime)
-        record_dict = record[0]
-        #print(f'This is record dict in getAssembly \n {record_dict}')
+#     if record["IdList"]:
+#         assembly_record_id = record['IdList'][0]
+#         info = Entrez.efetch(db = 'nucleotide', id = assembly_record_id, rettype="gb", retmode="xml")
+#         time.sleep(sleeptime)
+#         record = Entrez.read(info)
+#         time.sleep(sleeptime)
+#         record_dict = record[0]
+#         #print(f'This is record dict in getAssembly \n {record_dict}')
         
-        #This is to get the genome assembly id
-        for xref in record_dict["GBSeq_xrefs"]:
-            if xref.get("GBXref_dbname") == "Assembly":
-                assembly_id = xref["GBXref_id"]
-                print(f"   The assembly ID is:      {assembly_id}")     #this way I can see it in the terminal output and know what is up
-                return assembly_id
+#         #This is to get the genome assembly id
+#         for xref in record_dict["GBSeq_xrefs"]:
+#             if xref.get("GBXref_dbname") == "Assembly":
+#                 assembly_id = xref["GBXref_id"]
+#                 print(f"   The assembly ID is:      {assembly_id}")     #this way I can see it in the terminal output and know what is up
+#                 return assembly_id
 
 
 #to get the lineage
@@ -347,7 +347,9 @@ def extract_srr_id(file_source):
     return "-"
 
 
+#-----------Making the table--------------------
 def make_tsv(options):
+    '''Makes the table using the json outputs and calling NCBI API'''
     #columns_data = json.load(open("./columns_ngscopy.json", "r"))
 
     with open(options.tsv, "w", newline="") as tsvfile:

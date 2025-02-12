@@ -6,7 +6,7 @@
 connect well so I wanted to fill in some of the blanks '''
 
 '''Example Usage:
-  python3 biosample_metadata_grabberV3.py --email christie.woodside@email.gwu.edu --api_key bfbde99c962d228023e8d62a078bdb12d108 --folder /Users/christiewoodside/Desktop/Thesis/H5N1/jan13/all/ --output /Users/christiewoodside/Desktop/Thesis/H5N1/jan13/BS_H5N1_BATCH01JAN11.tsv'''
+  python3 biosample_metadat_H5N1APHIS.py --email christie.woodside@email.gwu.edu --api_key bfbde99c962d228023e8d62a078bdb12d108 --folder /Users/christiewoodside/Desktop/Thesis/H5N1/jan19/all/ --output /Users/christiewoodside/Desktop/Thesis/H5N1/jan19/BS_H5N1_BATCH1.tsv'''
 
 
 from Bio import Entrez
