@@ -1,0 +1,2 @@
+# README File for Christie Woodside
+These code scripts are used to take the JSON putputs from HIVE3 instance and convert them into a tsv/table to be used in data.argosdb
