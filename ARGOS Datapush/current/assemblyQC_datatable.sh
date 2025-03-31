@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#input: bash assemblyQC_datatable.sh /Users/christiewoodside/Desktop/ARGOS/mar19/all/ /Users/christiewoodside/Desktop/ARGOS/mar19/all/test_newcode.tsv
+#input: bash assemblyQC_datatable.sh /Users/username/Desktop/ARGOS/mar19/all/ /Users/cusername/Desktop/ARGOS/mar19/all/test_newcode.tsv
 # Created March 20, 2025
 #This code is used to create the assemblyQC_* tables for ARGOSDB currently. This was because there were server issues with NCBI
 
@@ -12,7 +12,7 @@ if ! command -v jq &> /dev/null; then
     exit 1
 fi
 
-# Input directory and output file (output file is optional, default will be used if not provided)
+# Input directory and output file ****(output file is optional, default will be used if not provided)
 input_dir="$1"
 output_file="${2:-'combined_data.tsv'}"  # Use provided output file, or default to 'ncbi_data.tsv'
 
@@ -51,6 +51,7 @@ for json_file in "$input_dir"*-qcAll.json; do
         #echo "$nucleotide"
 
         # Extract values specific to this assembled_genome_acc
+        # These are the values that are already found in the JSON outputs
         analysis_platform_object_id=$(echo "$entry" | jq -r '.analysis_platform_object_id // "NA"')
         analysis_platform=$(echo "$entry" | jq -r '.analysis_platform // "NA"')
         bco_id=$(echo "$entry" | jq -r '.id // "NA"')
