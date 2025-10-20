@@ -1,1 +1,10 @@
-# Hello
+# Current Data Formatting Tables
+The shell and python scripts shown here are used to format the data for the datatables found on the data.argosdb.org data base.
+
+## The Scripts:
+- assemblyQC_datatable.sh is used to create the assemblyQC_ tables. First, it takes in the all the json files, qcAll, from the HIVE3 computations for the results of interest. They are stored in a folder locally, separated from the ngs jsons. It then flattens the json to grab the correct key/value pairs and spits them out into the table, in the correct schema order. Values that are needed for the table but not found within the json files are grabbed from NCBI using the API. The code with spit out a data table with the correct v1.6 assembly schema.
+- ngsQC_datatable_V2.sh is used to create the ngsQC_ tables. First, it takes in the all the json files, qcNGS, from the HIVE3 computations for the results of interest. They are stored in a folder locally, separated from the assembly (all) jsons. It then grabs the correct key/value pairs and spits them out into the table, in the correct schema order. Values that are needed for the table but not found within the json files are grabbed from NCBI using the API. The code with spit out a data table with the correct v1.6 ngs schema.
+- biosample_metadata_grabberV4.py is used to create the biosampleMeta_ tables. The code grabs the biosample accession (if available) and the genome accession from the top of the assembly (qcAll) json file. It will use either of the accessions to grab the metadata listed on NCBI for that ID. It will fill out the values into the correct columns given by the v1.6 schema. The output take is added to the main datatable on the data.argosdb.org website.
+
+### Notes
+These scripts are subject to change given the changes that have been done with NCBI and the merge to their datasets structure. This has caused issues in accessing linked data. Some values may not be in the output table, but these can be entered manually. The scripts, if they are to be used in the future, will need adjusting to accomodate teh NCBI data landscape evolution.
