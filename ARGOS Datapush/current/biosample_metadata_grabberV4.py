@@ -3,7 +3,7 @@
 '''Uses the folder of ngsQC JSON files instead of a text file. This allows for the JSOn outputs to be downloaded form HIVE3, stored into a folder, and accessed to create the ngsQC data table.'''
 
 '''Example Usage:
-  python3 biosample_metadata_grabberV4.py --email christie.woodside@email.gwu.edu --api_key bfbde99c962d228023e8d62a078bdb12d108 --folder /Users/christiewoodside/Desktop/ARGOS/oct_28/all/ --output /Users/christiewoodside/Desktop/ARGOS/oct_28/BS_clostridiumPerfringens.tsv'''
+  python3 biosample_metadata_grabberV4.py --email @edu --api_key AAAAAAAAAA --folder /Users/USER/Desktop/all/ --output /Users/USER/Desktop/BS_TEST.tsv'''
 
 
 from Bio import Entrez
@@ -18,8 +18,6 @@ sleeptime = 0.11
 
 sleeptime_withtoken = 0.11  # seconds
 sleeptime_notoken = 0.34  # seconds
-
-'''Api key for CW as of Oct 1 bfbde99c962d228023e8d62a078bdb12d108'''
 
 argos_schema_version = 'v1.6'
 # Schema keys that are used to create the data table. These are the column headers.
