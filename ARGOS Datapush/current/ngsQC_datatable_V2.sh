@@ -4,14 +4,6 @@
         # Updated May 20, 2025 by Christie Woodside
 #This code is used to create the ngsQC_HIVE3 table for ARGOSDB currently. This was because there were server access issues with NCBI and using the Entrez tool. 
 
-#input: bash ngsQC_datatable_V2.sh /Users/christiewoodside/Desktop/ARGOS/may21/ngs/ /Users/christiewoodside/Desktop/ARGOS/may21/ngs/ngs_may21_test2.tsv
-
-# for some reason you have to do this for my terminal:
-# /Users/christiewoodside/opt/anaconda3/bin/python3 -m pip install --upgrade --force-reinstall "biopython==1.83" "numpy<2"
-# /Users/christiewoodside/opt/anaconda3/bin/python3 -c "import Bio, sys; print('Bio ->', Bio.__file__); print('PY ->', sys.executable)"
-
-
-
 sleeptime_wtoken=0.12
 
 # Check if jq is installed
@@ -134,7 +126,7 @@ for json_file in "$input_dir"*-qcNGS.json; do
     
 
         sleep "$sleeptime_wtoken"
-        SEARCH_RESULT=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=sra&term=$SRR_ID&retmode=json&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+        SEARCH_RESULT=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=sra&term=$SRR_ID&retmode=json&api_key=API KEY")      ### API KEY ADD HERE
         sleep "$sleeptime_wtoken"
         SRA_ID=$(echo "$SEARCH_RESULT" | jq -r '.esearchresult.idlist[0] // empty')
         #echo "$SRA_ID"
@@ -146,7 +138,7 @@ for json_file in "$input_dir"*-qcNGS.json; do
             
             # Query the SRA metadata to get more information about the SRA ID
             sleep "$sleeptime_wtoken"
-            SRA_METADATA=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=sra&id=$SRA_ID&retmode=xml&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+            SRA_METADATA=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=sra&id=$SRA_ID&retmode=xml&api_key=API KEY")         ### API KEY ADD HERE
             sleep "$sleeptime_wtoken"
             
             # Decode HTML entities in the SRA_METADATA
@@ -178,7 +170,7 @@ for json_file in "$input_dir"*-qcNGS.json; do
 
                 #Getting Biosample metadata that is needed
                 sleep "$sleeptime_wtoken"
-                BIOSAMPLE_SEARCH_RESULT=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=biosample&term=$BIOSAMPLE_ID&retmode=json&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+                BIOSAMPLE_SEARCH_RESULT=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=biosample&term=$BIOSAMPLE_ID&retmode=json&api_key=API KEY")           ### API KEY ADD HERE
                 sleep "$sleeptime_wtoken"
                 
                 # Extract the Biosample UID from the search result
@@ -186,7 +178,7 @@ for json_file in "$input_dir"*-qcNGS.json; do
 
                 if [[ -n "$BIOSAMPLE_UID" ]]; then
                     sleep "$sleeptime_wtoken"
-                    BIOSAMPLE_METADATA=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=biosample&id=$BIOSAMPLE_UID&retmode=xml&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+                    BIOSAMPLE_METADATA=$(curl -s "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=biosample&id=$BIOSAMPLE_UID&retmode=xml&api_key=API KEY")          ### API KEY ADD HERE
                     sleep "$sleeptime_wtoken"
                     BIOSAMPLE_METADATA_CLEAN=$(echo "$BIOSAMPLE_METADATA" | sed 's/<!DOCTYPE[^>]*>//g')
                     #echo "$BIOSAMPLE_METADATA_CLEAN"
@@ -201,7 +193,7 @@ import time
 from Bio import Entrez
 import xmltodict
 
-Entrez.email = 'christie.woodside@email.gwu.edu'
+Entrez.email = 'EMAIL'         # MAKE SURE TO ADD YOUR EMAIL HERE
 
 def bsMeta(bs_term, sleeptime):
     ''' gets additional biosample information to add to the tsv'''
@@ -254,7 +246,7 @@ def bsMeta(bs_term, sleeptime):
                 #echo "$BIOSAMPLE_UID"
                 sleep "$sleeptime_wtoken"
                 BS_LINKS=$(curl -s \
-                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=biosample&db=assembly&id=$BIOSAMPLE_UID&retmode=json&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=biosample&db=assembly&id=$BIOSAMPLE_UID&retmode=json&api_key=API KEY")       ### API KEY ADD HERE
                 sleep "$sleeptime_wtoken"
 
                 #echo "DEBUG raw BS_LINKS →"
@@ -269,7 +261,7 @@ def bsMeta(bs_term, sleeptime):
             if [[ -z "$ASSEMBLY_UID" && -n "$SRA_ID" ]]; then
                 sleep "$sleeptime_wtoken"
                 SR_LINKS=$(curl -s \
-                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=sra&db=assembly&id=$SRA_ID&retmode=json&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=sra&db=assembly&id=$SRA_ID&retmode=json&api_key=API KEY")               ### API KEY ADD HERE
                 sleep "$sleeptime_wtoken"
                 ASSEMBLY_UID=$(echo "$SR_LINKS" \
                     | jq -r '.linksets[0].linksetdbs[0].links[0] // empty')
@@ -279,7 +271,7 @@ def bsMeta(bs_term, sleeptime):
             if [[ -n "$ASSEMBLY_UID" ]]; then
                 sleep "$sleeptime_wtoken"
                 SUMMARY=$(curl -s \
-                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=assembly&id=$ASSEMBLY_UID&retmode=json&api_key=bfbde99c962d228023e8d62a078bdb12d108")
+                    "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=assembly&id=$ASSEMBLY_UID&retmode=json&api_key=API KEY")              ### API KEY ADD HERE
                 sleep "$sleeptime_wtoken"
                 GAID=$(echo "$SUMMARY" \
                     | jq -r --arg id "$ASSEMBLY_UID" \
@@ -304,4 +296,4 @@ def bsMeta(bs_term, sleeptime):
 done
 
 
-echo "Data processing completed. Output saved to $output_file."
+echo "Data processing ngsQC datatable completed. Output saved to $output_file."
