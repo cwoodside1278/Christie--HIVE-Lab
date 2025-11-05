@@ -1,6 +1,17 @@
 # Christie Woodside for HIVE-Lab
-All public code and projects created by me for the HIVE Lab at George Washington University SMHS and FDA-ARGOS Project. The FDA-ARGOS Project GitHub Repository can be found [here](https://github.com/FDA-ARGOS/data.argosdb).
+All public code and projects created by me for the HIVE Lab at George Washington University SMHS and FDA-ARGOS Project. 
 
-## Location
+## FDA-ARGOS Project
+FDA-ARGOS database updates may help researchers rapidly validate diagnostic tests and use qualified genetic sequences to support future product development
+
+As of September 2021, Embleema and George Washington University have been conducting bioinformatic research and system development, focusing on expanding the FDA-ARGOS database. This project expands datasets publicly available in FDA-ARGOS, improves quality control by developing quality matrix tools and scoring approaches that will allow the mining of public sequence databases, and identifies high-quality sequences for upload to the FDA-ARGOS database as regulatory-grade sequences. Building on expansions during the COVID-19 pandemic, this project aims to further improve the utility of the FDA-ARGOS database as a key tool for medical countermeasure development and validation.
+
+The FDA-ARGOS Project GitHub Repository can be found [here](https://github.com/FDA-ARGOS/data.argosdb).
+
+### Location
 - Code files can be found in the [lib](https://github.com/FDA-ARGOS/data.argosdb/tree/main/lib) section of the FDA-ARGOS GitHub. 
-- Most files created and edited by me can be found in the FDA-ARGOS [HIVE3](https://github.com/FDA-ARGOS/data.argosdb/tree/main/lib/HIVE3) folder. 
+- Most files created and edited by me can be found in the FDA-ARGOS [HIVE3](https://github.com/FDA-ARGOS/data.argosdb/tree/main/lib/HIVE3) folder.
+
+## Master's Thesis
+My thesis titled _Bridging Genomics and Preparedness: Quality Control Metrics and Analysis for Emerging and Circulating Avian Influenza in 2024-2025_ was completed and accepted in May 2025 for my completeion of my Master's Program Bioinformatics and Molecular Biochemistry.
+All the data and code can be found in the folder titled [Thesis](https://github.com/cwoodside1278/Christie--HIVE-Lab/tree/main/Thesis).
