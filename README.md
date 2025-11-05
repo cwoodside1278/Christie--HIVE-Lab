@@ -13,5 +13,5 @@ The FDA-ARGOS Project GitHub Repository can be found [here](https://github.com/F
 - Most files created and edited by me can be found in the FDA-ARGOS [HIVE3](https://github.com/FDA-ARGOS/data.argosdb/tree/main/lib/HIVE3) folder.
 
 ## Master's Thesis
-My thesis titled _Bridging Genomics and Preparedness: Quality Control Metrics and Analysis for Emerging and Circulating Avian Influenza in 2024-2025_ was completed and accepted in May 2025 for my completeion of my Master's Program Bioinformatics and Molecular Biochemistry.
+My thesis titled _Bridging Genomics and Preparedness: Quality Control Metrics and Analysis for Emerging and Circulating Avian Influenza in 2024-2025_ was completed and accepted in May 2025 for my Master's Program in Bioinformatics and Molecular Biochemistry.
 All the data and code can be found in the folder titled [Thesis](https://github.com/cwoodside1278/Christie--HIVE-Lab/tree/main/Thesis).
