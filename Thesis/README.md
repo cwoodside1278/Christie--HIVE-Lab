@@ -10,6 +10,9 @@ The code within this folder was utilized to create the datatables for my thesis 
 - H5N1_ngsQC
 - H5N1_biosampleMeta
 
+## Data Collection
+All of the data used in this dissertation was from the USDA BioProject PRJNA1102327. This includes all surveillance reported by the USDA and its affiliated labs. The organisms that are included, but not limited to, were Chickens, Duck, Dairy Cattle, Domestic Cats, Turkey, Mountain Lion, Canada Goose, Snow Goose, Racoon, Fox, Alpaca, Bobcat, Raven, and more. The data retreived, in addition to their QC metrics, can be found in the tables names APHIS_H5N1_biosampleMeta-march29, APHIS_H5N1_ngsQC-march29, and APHIS_H5N1_assemblyQC-march29 under the datasets folder in the repo.
+
 ## Observable Figures
 The code that was used to create the figures can be found on Observable. 
-The most current renderings of the image can be [found here]().
+The most current renderings of the image can be [found here](https://observablehq.com/d/26eb67bd1cc77b6a).
