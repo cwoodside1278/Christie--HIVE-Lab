@@ -1,4 +1,7 @@
 #!/bin/bash
+# Updated December 5, 2025 by Christie Rose
+# Script concatenates all of the genome assembly (fasta) files that were collected and unzipped in the preious steps. They are all concatenated into 
+# one file that will be the database file. The compression step of this file needs to be run using run_compression.sh. 
 
 source "$(dirname "$0")/config.sh"
 
