@@ -13,7 +13,9 @@ The FDA-ARGOS Project GitHub Repository can be found [here](https://github.com/F
 - Most files created and edited by me can be found in the FDA-ARGOS [HIVE3](https://github.com/FDA-ARGOS/data.argosdb/tree/main/lib/HIVE3) folder.
 
 ## SlimNT
-slimNT has been developed to provide a curated, streamlined version of the NT database. Metagenomic analysis can be difficult and time consuming when querying against the 368001 genomes in NT, and the necessary indexing step is resource heavy; both time and computationally. slimNT aims to ##solve## that problem by strategically sub setting the NT database to create a compact, user-defined database that is tailored to specific needs.
+slimNT has been developed to provide a curated, streamlined version of the NT database. Metagenomic analysis can be difficult and time consuming when querying against the 368001 genomes in NT, and the necessary indexing step is resource heavy; both time and computationally. slimNT aims to _solve_ that problem by strategically sub setting the NT database to create a compact, user-defined database that is tailored to specific needs.
+
+This database file can be utilized in our CensuScope tool on the HIVE Platform. The CensuScope tool paper can be found [here](https://pmc.ncbi.nlm.nih.gov/articles/PMC4218995/).
 
 The repository can be found here: [slimNT Repository](https://github.com/GW-HIVE/slimNT)
 All documentation files and code scripts under the [pipeline](https://github.com/GW-HIVE/slimNT/tree/main/pipeline) folder were updated and created by me.
