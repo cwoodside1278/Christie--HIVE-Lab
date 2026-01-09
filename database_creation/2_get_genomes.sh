@@ -1,4 +1,7 @@
 #!/bin/bash
+# Updated December 5, 2025 by Christie Rose
+# Gets the reference sequence genomes from the NCBI API. 
+
 
 source "$(dirname "$0")/config.sh"
 
