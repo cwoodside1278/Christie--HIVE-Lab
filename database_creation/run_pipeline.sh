@@ -4,6 +4,9 @@
 # Run this file via command line to run the database creation pipeline. There is version control, so please add either text or number after the 
 # --version flag. A hard coded filepath location needs to be updated when you use these scripts, see below. 
 
+# This pipeline creates a database containing all genomes that are flagged as 'reference genomes' from the NCBI API. It concatenates all the fastas into
+# one usable database file. This file is used in our CensuScope tool.
+
 
 set -euo pipefail
 mkdir -p logs
