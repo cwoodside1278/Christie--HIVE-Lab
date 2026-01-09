@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Updated December 5, 2025 by Christie Rose
+
+# This code compresses the database file that was created from run_pipeline.sh. This script takes version control, please add text or a number
+# after the --version flag. There is a section that needs a hard coded file path before you run the script, see below.
+
 set -euo pipefail
 mkdir -p logs
 
@@ -50,7 +55,7 @@ exec > >(tee -a "logs/compress_${VERSION:-unknown}_${TS}.out") 2> >(tee -a "logs
 
 
 set -e
-cd /data/christie/refdata || exit 1
+cd /data/christie/refdata || exit 1   ## MANUALLY CHANGE THE FILE PATH HERE
 
 mkdir -p logs
 
