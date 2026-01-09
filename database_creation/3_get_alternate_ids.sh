@@ -1,4 +1,6 @@
 #!/bin/bash
+# Updated December 5, 2025 by Christie Rose
+# Script checks if there are any alternate genome IDs associated with the genome assembly IDs that were collected. We want to make sure we collect all options.
 
 source "$(dirname "$0")/config.sh"
 
