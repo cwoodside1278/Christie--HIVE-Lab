@@ -3,7 +3,7 @@
 source "$(dirname "$0")/config.sh"
 
 logstepstart "Starting Step 2: Getting Genomes"
-log "Skipping Step 1, not relevent"
+log "Skipping Step 1, not relevent to this database creation."
 
 LOGDIR=/data/christie/refdata/logs
 mkdir -p "$LOGDIR"
