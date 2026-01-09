@@ -5,6 +5,7 @@ CensuScope is a census-based metagenomic analysis tool available on the GW HIVE 
 
 More details on the CensuScope methodology can be found here:
 [https://pmc.ncbi.nlm.nih.gov/articles/PMC4218995/](https://pmc.ncbi.nlm.nih.gov/articles/PMC4218995/)
+Code and documentation can be found here: [https://github.com/GW-HIVE/CensuScope](https://github.com/GW-HIVE/CensuScope)
 
 CensuScope requires a database object that serves as the reference for read mapping. This repository supports database preparation and curation workflows used by CensuScope on the HIVE Platform.
 
@@ -12,13 +13,12 @@ CensuScope requires a database object that serves as the reference for read mapp
 
 The code in this repository supports the manual construction of a curated reference genome database compatible with CensuScope.
 
-NCBI BLAST reference sequence databases such as refseq_genomes and refseq_reference_genomes are not directly downloadable as standalone objects. Instead, they are typically accessed dynamically through NCBI tools using specific flags. To support reproducible and offline workflows on the HIVE Platform, this repository provides scripts that:
+NCBI BLAST reference sequence databases such as _refseq_genomes_ and _refseq_reference_genomes_ are not directly downloadable as standalone objects, like nrnt or core-nt can. Instead, they are typically accessed dynamically through NCBI's own tools using specific flags. This has limitations for researchers needing the _refseq_genomes_ and _refseq_reference_genomes_ to be usable on a standalone tool. To support reproducible and offline workflows on the HIVE Platform, this repository provides scripts that:
 
-Access the NCBI API
-
-1. Identify genomes annotated with the “reference genome” flag
-2. Download the corresponding genome assemblies
-3. Manually concatenate them into a single, usable database file for CensuScope
+1. Access the NCBI API
+2. Identify genomes annotated with the “reference genome” flag
+3. Download the corresponding genome assemblies
+4. Manually concatenate them into a single, usable database file for CensuScope
 
 The resulting database mirrors the intent of NCBI’s reference genome collections while enabling local control, transparency, and reproducibility within the HIVE environment.
 
@@ -32,12 +32,11 @@ Metagenomic analysis against the full NT database (currently containing hundreds
 The slimNT database is derived from Representative Proteomes (RPs) and Reference Proteome Groups (RPGs) provided by the Protein Information Resource (PIR). Users may select reference proteomes and viral reference proteomes based on configurable cutoff thresholds:
 
 * Higher cutoff values generate larger, more comprehensive databases that improve detection sensitivity at the cost of increased computational requirements.
-
 * Lower cutoff values produce smaller databases that enable faster querying but may preferentially detect more distantly related sequences.
 
 This flexibility allows users to balance speed and accuracy based on project goals and available resources.
 
-To ensure portability and reproducibility, slimNT is built using a Nextflow-based pipeline that automates database aggregation and construction. Detailed installation and usage instructions are provided in the slimNT repository.
+To ensure portability and reproducibility, slimNT is built using a Nextflow-based pipeline and shell that automates database aggregation and construction. Detailed installation and usage instructions are provided in the [slimNT repository](https://github.com/GW-HIVE/slimNT).
 
 
 # Intended Use
