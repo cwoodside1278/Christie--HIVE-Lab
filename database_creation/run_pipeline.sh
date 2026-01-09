@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Created December 5, 2025 by Christie Rose
+
+# Run this file via command line to run the database creation pipeline. There is version control, so please add either text or number after the 
+# --version flag. A hard coded filepath location needs to be updated when you use these scripts, see below. 
+
 
 set -euo pipefail
 mkdir -p logs
@@ -54,7 +59,7 @@ exec > >(tee -a "logs/job_${VERSION:-unknown}_${TS}.out") 2> >(tee -a "logs/job_
 
 set -e
 
-cd /data/christie/refdata || exit 1  #updated to my directory
+cd /data/USER/refdata || exit 1  # MANUALLY INPUT YOUR DIRECTORY PATH
 
 
 mkdir -p logs
@@ -69,7 +74,6 @@ echo "Reference Genome Database Pipeline started at $(date)"
 echo "Using backup directory: ${BACKUP_DIR:-None}"
 echo "Creating file version: $VERSION"
 
-#./pipeline/1_get_ids.sh
 ./pipeline/2_get_genomes.sh
 ./pipeline/3_get_alternate_ids.sh
 ./pipeline/4_get_alternate_genomes.sh
