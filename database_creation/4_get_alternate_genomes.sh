@@ -1,4 +1,7 @@
 #!/bin/bash
+# Updated December 5, 2025 by Christie Rose
+# Script process the alternate genomes that were found and unzips them to be added to the database. This will only run if alt_ids.txt exists
+# and is not empty.
 
 source "$(dirname "$0")/config.sh"
 
