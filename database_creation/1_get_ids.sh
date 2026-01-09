@@ -1,4 +1,8 @@
 #!/bin/bash
+# Updated December 5, 2025 by Christie Rose
+
+### No longer applicable, this script is slimNT specific. It was left in here to allow for minimal changes in the pipeline to accomodate the time crunch
+# of updating the code to accomodate reference sequence database creation. Ignore this script. 
 
 source "$(dirname "$0")/config.sh"
 
