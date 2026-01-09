@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#input: bash assemblyQC_datatable.sh /Users/user/Desktop/ARGOS/mar19/all/ /Users/user/Desktop/ARGOS/mar19/all/test_newcode.tsv
+# example input: bash assemblyQC_datatable.sh /Users/user/Desktop/ARGOS/mar19/all/ /Users/user/Desktop/ARGOS/mar19/all/test_newcode.tsv
 
         #UPDATED ON JULY 15, 2025: This update reflects the recalculations of perecent reads aligned and percent reads unaligned which was incorrect in the json outputs. This has been fixed, but some will need ot be recalcualted.
         #UPDATED ON MAY 12,2025: The updates have been made to reflect how assembly is not longer pasted into the JSON. The edits allow for the genome assembly ID to be grabbed from the
@@ -10,7 +10,6 @@
 # Created March 20, 2025
 #This code is used to create the assemblyQC_* tables for ARGOSDB currently. This was because there were server issues with NCBI
 sleeptime_wtoken=0.14    #this will be the sleeptime set before all the API calls
-
 
 
 # Check if jq is installed
